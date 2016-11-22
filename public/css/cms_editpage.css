@@ -1,0 +1,79 @@
+.editor-toolbar.fullscreen {
+	/*position: ;*/
+	top: 40px;
+	/* left: 0; 
+    left: 16.666% */
+	/*
+	left: ;
+	width: ;
+	height: ;
+    */
+}
+
+
+/*
+.CodeMirror-sided {
+    width: 50%!important;
+}
+*/
+
+.CodeMirror-fullscreen {
+	/* position: fixed !important; */
+	top: 90px;
+	/*
+    left: 0;
+    right: 0;
+    bottom: 0;
+    */
+}
+
+.editor-preview-side {
+	/*
+    position: fixed;
+    bottom: 0;
+    width: 50%; */
+	top: 90px;
+    border: solid 2.5px rgba(0, 0, 0, 0.5);
+	/*
+    right: 0;
+    z-index: 9;
+    border: 1px solid #ddd;*/
+}
+
+@media (min-width: 992px) {
+	.editor-toolbar.fullscreen {
+		left: 16.666%;
+	}
+	.CodeMirror-fullscreen {
+		left: 16.666%;
+	}
+	.CodeMirror-sided {
+		width: 41.66666% !important;
+	}
+	.editor-preview-side {
+		width: 41.66666%;
+	}
+}
+
+.editor-toolbar {
+	background-color: rgb(25, 25, 25) !important;
+	opacity: 1.0;
+}
+
+.editor-toolbar:hover {
+	opacity: 1.0;
+}
+
+.editor-toolbar a {
+	color: rgb(200, 200, 200) !important;
+}
+
+.editor-toolbar a.active, .editor-toolbar a:hover {
+	color: rgb(200, 200, 200) !important;
+	background-color: rgb(0, 0, 0) !important;
+}
+
+.editor-toolbar.disabled-for-preview a:not(.no-disable) {
+	color: rgb(100, 100, 100) !important;
+	background-color: rgb(50, 50, 50) !important;
+}

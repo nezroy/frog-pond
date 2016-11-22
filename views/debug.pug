@@ -1,0 +1,18 @@
+extends ./content.pug
+
+block content
+    .row
+        .column.grid_10
+            .alpha-column
+                ul
+                    li auth_level: #{auth_level}
+                    li token_expires: #{token_expires}
+                    li sess_dump: #{sess_dump}
+                    li char_data: #{char_data}
+                    li reqhdr_dump: #{reqhdr_dump}
+                    li req_ip: #{req_ip}
+                    li req_ips: #{req_ips}
+                br
+                ul
+                    each val, key in curenv
+                        li #{key}: #{val}

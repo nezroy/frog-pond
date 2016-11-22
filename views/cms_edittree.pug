@@ -1,0 +1,114 @@
+extends ./content.pug
+
+block css
+    link(href=cf_url + "/css/bootstrap-submenu-2.0.4.min.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/cms.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/cms_edittree.css", rel="stylesheet", media="screen", type="text/css")
+
+block js
+    script(src=cf_url + "/js/bootstrap-submenu-2.0.4.min.js")
+    script(src="/js/cms.js")
+    script(src=cf_url + "/js/jquery.nestable.js")
+    script(src="/js/cms_edittree.js")
+    script(type="text/javascript")
+        | var EDITTREE = {};
+        | EDITTREE.section = "#{title}";
+        | EDITTREE.mount = "#{mount}";
+        | EDITTREE.manifest = !{manifest};
+
+block content
+    .alpha-panel
+        #editsection(data-section-title=title)
+            .dd-content
+                span.title #{title}
+                .dd-attr
+                    span.btn.glyphicon.glyphicon-wrench(data-toggle="modal", data-target="#mod-edit-section", title="Edit Details")
+                    span.btn.glyphicon.glyphicon-plus(title="Add Child Page")
+        div.dd#edittree
+            ol.dd-list
+                                
+            .btn-toolbar.pull-right
+                button.btn.btn-primary#savechanges(type="button") Save Changes
+                button.btn.btn-default#revert(type="button") Revert
+
+block modals
+    .modal#mod-save(tabindex="-1", role="dialog", aria-labelledby="mod-save-label", data-backdrop="static")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h4.modal-title#mod-save-label Save Changes
+                .modal-body
+                    p
+                .modal-footer
+                    button.btn.btn-primary(type="button") OK
+
+    .modal#mod-remove(tabindex="-1", role="dialog", aria-labelledby="mod-remove-label", data-backdrop="static")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
+                    h4.modal-title#mod-edit-section-label Confirm Remove Page
+                .modal-body
+                    p Once you choose to Save Changes, all of this item's content AND children will be deleted! Consider using the "Toggle Visibility" option instead to hide this item if you are not certain about this.
+                    p Are you sure you want to remove "
+                        span.page-title
+                        | "?
+                .modal-footer
+                    button.btn.btn-primary(type="button") Yes (Remove)
+                    button.btn.btn-default(type="button", data-dismiss="modal") No (Cancel)
+
+    .modal#mod-edit-section(tabindex="-1", role="dialog", aria-labelledby="mod-edit-section-label", data-backdrop="static")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
+                    h4.modal-title#mod-edit-section-label Edit Section Details
+                .modal-body
+                    form.form-horizontal#mod-edit-section-form
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-section-vpriv") View Priv:
+                            .col-sm-9
+                                p.form-control-static#mod-edit-section-vpriv
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-section-epriv") Edit Priv:
+                            .col-sm-9
+                                p.form-control-static#mod-edit-section-epriv
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-section-tpriv") Tree Priv:
+                            .col-sm-9
+                                p.form-control-static#mod-edit-section-tpriv
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-section-title") Title:
+                            .col-sm-9
+                                input.form-control#mod-edit-section-title(type="text")
+                                span.glyphicon.form-control-feedback
+                                span.help-block
+                            
+                .modal-footer
+                    button.btn.btn-primary(type="button") Apply
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel
+
+    .modal#mod-edit-item(tabindex="-1", role="dialog", aria-labelledby="mod-edit-item-label", data-backdrop="static")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    button.close(type="button", data-dismiss="modal", aria-label="Close"): span(aria-hidden="true") &times;
+                    h4.modal-title#mod-edit-item-label Edit Page Details
+                .modal-body
+                    form.form-horizontal#mod-edit-item-form
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-item-name") Page Name:
+                            .col-sm-9
+                                input.form-control#mod-edit-item-name(type="text")
+                                span.glyphicon.form-control-feedback
+                                span.help-block
+                        .form-group
+                            label.control-label.col-sm-3(for="mod-edit-item-title") Page Title:
+                            .col-sm-9
+                                input.form-control#mod-edit-item-title(type="text")
+                                span.glyphicon.form-control-feedback
+                                span.help-block
+                            
+                .modal-footer
+                    button.btn.btn-primary(type="button") Apply
+                    button.btn.btn-default(type="button", data-dismiss="modal") Cancel

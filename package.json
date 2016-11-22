@@ -1,0 +1,44 @@
+{
+  "name": "rff-managers-app",
+  "version": "0.0.1",
+  "private": true,
+  "description": "RFF Managers Application",
+  "scripts": {
+    "start": "node app.js",
+    "monitor": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Red Frog",
+  "contributors": [
+    {
+      "name": "nezroy",
+      "email": "nezroy@gmail.com"
+    }
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "pkginfo": "latest",
+    "bluebird": "3.4.x",
+    "body-parser": "1.15.x",
+    "connect-memcached": "0.2.x",
+    "errorhandler": "1.4.x",
+    "express": "4.13.x",
+    "express-mysql-session": "1.0.x",
+    "express-session": "1.13.x",
+    "extend": "3.0.x",
+    "marked": "0.3.x",
+    "nconf": "0.8.x",
+    "node-mysql": "0.4.x",
+    "node-uuid": "1.4.x",
+    "pug": "latest",
+    "response-time": "2.3.x",
+    "underscore": "1.8.x",
+    "winston": "2.2.x",
+    "oauth": "0.9.x",
+    "xml2js": "0.4.x"
+  },
+  "engines": {
+    "node": ">=0.12.7",
+    "npm": ">=2.11.0"
+  }
+}

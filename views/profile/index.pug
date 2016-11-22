@@ -1,0 +1,20 @@
+extends ../content.pug
+
+block header
+    h1 Profile
+
+block content                
+    .row
+        .alpha-panel
+            h2 Member Profile
+            p Member ID: #{m.ID}
+            p Application #: #{m.applicationNo}
+            p Role: #{m.profileRole()}
+            p Status: #{m.profileStatus()}
+            p Stack Flag: #{m.canStack}
+    .row
+        .alpha-panel
+            h2 CREST Tokens
+            ul
+                if auth_usr.hasPriv("tokens_edit_own")
+                    li: a(href="tokens") Manage CREST Tokens

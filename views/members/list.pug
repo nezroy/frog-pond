@@ -1,0 +1,26 @@
+extends ../content.pug
+
+block content
+    .row
+        .column.grid_10
+            .alpha-column
+                p: a(href="/members/new") Add New Member
+
+    .row
+        .column.grid_10
+            .alpha-column
+                table#mlist
+                    thead
+                        tr
+                            th Detail
+                            th App#
+                            th Contract Alt
+                            th Corp Role
+                            th Corp Status
+                            th # of FAs
+                    tbody
+                    
+                span#tload ... loading ...
+
+block js
+    script(src="/js/members/list.js")

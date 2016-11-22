@@ -1,0 +1,92 @@
+{
+ "view_priv": "everyone",
+ "edit_priv": "rff_faq_edit",
+ "tree_priv": "rff_faq_tree",
+ "section_title": "FAQ",
+ "pages": [
+  {
+   "title": "Main",
+   "name": "index",
+   "hidden": false,
+   "uuid": "2ac17bdd-d330-4302-baf1-12d5188d15a6"
+  },
+  {
+   "title": "File 1",
+   "name": "file1",
+   "hidden": false,
+   "uuid": "881bb8dc-7dc1-48ff-82e5-6622717555ef",
+   "pages": [
+    {
+     "title": "File 1",
+     "name": "index",
+     "hidden": false,
+     "uuid": "6062e217-aeac-4881-9ee4-66cc9d1f9754"
+    },
+    {
+     "title": "Item 1000",
+     "name": "i1000",
+     "hidden": true,
+     "uuid": "8ce06db4-fce4-4c78-a100-ba6f59cf76b5"
+    },
+    {
+     "title": "Item 1002",
+     "name": "i1002",
+     "hidden": false,
+     "uuid": "55005629-1e3c-4efe-802b-4a5dffbd63f9"
+    },
+    {
+     "title": "Item 1001",
+     "name": "i1001",
+     "hidden": false,
+     "uuid": "357aef65-1f77-4e37-8779-acdca12efa6b",
+     "pages": [
+      {
+       "title": "Item 1003",
+       "name": "i1003",
+       "hidden": false,
+       "uuid": "e7367633-780f-4cac-90d7-075ac5572223"
+      },
+      {
+       "title": "Item 1004",
+       "name": "i1004",
+       "hidden": false,
+       "uuid": "319d8a1b-2586-4256-973f-8caafde0c30c",
+       "pages": [
+        {
+         "title": "Item 1006",
+         "name": "i1006",
+         "hidden": false,
+         "uuid": "8c689f08-c783-44d9-9a0b-30edbb6f6211"
+        },
+        {
+         "title": "Item 1007",
+         "name": "i1007",
+         "hidden": false,
+         "uuid": "0030a783-d757-4fb3-80c1-1472c2bd50f4"
+        },
+        {
+         "title": "Item 1008",
+         "name": "i1008",
+         "hidden": false,
+         "uuid": "c8d00f28-9ec7-465f-8129-5af4fd32604d"
+        }
+       ]
+      },
+      {
+       "title": "Item 1005",
+       "name": "i1005",
+       "hidden": false,
+       "uuid": "166cc463-cc18-47c0-9691-a6938eb2520f"
+      }
+     ]
+    }
+   ]
+  },
+  {
+   "title": "File 2",
+   "name": "file2",
+   "hidden": false,
+   "uuid": "f049bc85-0014-4923-bf32-a35066cb9661"
+  }
+ ]
+}

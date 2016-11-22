@@ -1,0 +1,39 @@
+extends ./content.pug
+
+block css
+    link(href=cf_url + "/css/bootstrap-submenu-2.0.4.min.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/cms.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/simplemde-rff.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/cms_editpage.css", rel="stylesheet", media="screen", type="text/css")
+
+block js
+    script(src=cf_url + "/js/bootstrap-submenu-2.0.4.min.js")
+    script(src="/js/cms.js")
+    script(src=cf_url + "/js/simplemde-1.11.2.min.js")
+    script(src="/js/cms_editpage.js")
+
+block content
+    //if show_tree_menu || show_edit_menu
+        ul#editmenu.list-unstyled
+            if show_tree_menu
+                li: a.glyphicon.glyphicon-th-list(href=mount + "?edit_mode=1", title="Edit Section Tree", data-placement="bottom")
+            if show_edit_menu
+                li: a.glyphicon.glyphicon-pencil(href="?edit_mode=1", title="Edit Current Page", data-placement="bottom")
+
+    //if section_menu
+        .row
+            .col-xs-12 !{section_menu}
+            
+    //.alpha-panel !{page_content}
+    textarea !{page_content}
+
+block modals
+    .modal#mod-save(tabindex="-1", role="dialog", aria-labelledby="mod-save-label", data-backdrop="static")
+        .modal-dialog(role="document")
+            .modal-content
+                .modal-header
+                    h4.modal-title#mod-save-label Save Changes
+                .modal-body
+                    p
+                .modal-footer
+                    button.btn.btn-primary(type="button") OK

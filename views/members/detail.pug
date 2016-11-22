@@ -1,0 +1,119 @@
+extends ../content.pug
+
+block content
+    .row
+        .column.grid_10
+            .alpha-column
+                p: a(href="/members") &lt; Return to Member List
+
+    .row
+        .column.grid_5
+            .alpha-column
+                label(for="SetContractAlt") Contract Alt:
+                ul#ContractAlt
+                    li(class="AddEVEChar")
+                        input(type="text", name="SetContractAlt", disabled="disabled")
+                        button(disabled="disabled") +
+                        span
+
+                br
+
+                label(for="ApplicationNo") Application #:
+                input#ApplicationNo(type="text", name="ApplicationNo")
+                br
+                br
+                    
+                label(for="CorpStatus") Corp Status:
+                select#CorpStatus(name="CorpStatus")
+                    option(value="")
+                    option(value="Active") Active
+                    option(value="Inactive") Inactive
+                    option(value="Thief") Thief
+                    option(value="Banned") Banned
+                    option(value="Emeritus") Emeritus
+                br
+                br
+
+                label(for="CorpRole") Corp Role:
+                select#CorpRole(name="CorpRole")
+                    option(value="")
+                    option(value="Pilot") Pilot
+                    option(value="JrCM") Junior Contract Manager
+                    option(value="CM") Contract Manager
+                    option(value="SrCM") Senior Contract Manager
+                    option(value="Dir") Director
+                    option(value="CEO") CEO
+                br
+                br
+                
+                label(for="Notes") Notes:
+                br
+                textarea#Notes(name="Notes", rows="6", cols="40")
+
+                br
+                br
+                
+                label(for="AddLanguage") Languages:
+                ul#Languages
+                    li(class="AddSimpleText")
+                        input(type="text", name="AddLanguage", disabled="disabled")
+                        button(disabled="disabled") +
+                
+                br                                                            
+
+        .column.grid_5
+            .alpha-column
+                label(for="AddFreighterAlt") Freighter Alts:
+                ul#FreighterAlts
+                    li(class="AddEVEChar")
+                        input(type="text", name="AddFreighterAlt", disabled="disabled")
+                        button(disabled="disabled") +
+                        span
+
+                br
+
+                label(for="AddPreviousContractAlt") Previous Contract Alts:
+                ul#PreviousContractAlts
+                    li(class="AddEVEChar")
+                        input(type="text", name="AddPreviousContractAlt", disabled="disabled")
+                        button(disabled="disabled") +
+                        span
+                        
+                br
+                            
+                label(for="AddOtherCharacter") Other Characters:
+                ul#OtherCharacters
+                    li(class="AddEVEChar")
+                        input(type="text", name="AddOtherCharacter", disabled="disabled")
+                        button(disabled="disabled") +
+                        span
+
+                br
+                
+                label(for="AddEmail") Emails:
+                ul#Emails
+                    li(class="AddSimpleText")
+                        input(type="text", name="AddEmail", disabled="disabled")
+                        button(disabled="disabled") +
+
+                br
+                
+                label(for="AddPhoneNumber") Phone Numbers:
+                ul#PhoneNumbers
+                    li(class="AddSimpleText")
+                        input(type="text", name="AddPhoneNumber", disabled="disabled")
+                        button(disabled="disabled") +
+
+                br
+
+    .row
+        .column.grid_10
+            .alpha-column
+                button#addsavembr(disabled="disabled") Save
+                span
+
+block js
+    script(src="/js/members/detail.js")
+    script(type="text/javascript").
+        RFF.CurMember = !{m};
+        

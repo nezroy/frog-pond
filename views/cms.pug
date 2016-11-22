@@ -1,0 +1,24 @@
+extends ./content.pug
+
+block css
+    link(href=cf_url + "/css/bootstrap-submenu-2.0.4.min.css", rel="stylesheet", media="screen", type="text/css")
+    link(href="/css/cms.css", rel="stylesheet", media="screen", type="text/css")
+
+block js
+    script(src=cf_url + "/js/bootstrap-submenu-2.0.4.min.js")
+    script(src="/js/cms.js")
+
+block content
+    if show_tree_menu || show_edit_menu
+        ul#editmenu.list-unstyled
+            if show_tree_menu
+                li: a.glyphicon.glyphicon-th-list(href=mount + "?edit_mode=1", title="Edit Section Tree", data-placement="bottom")
+            if show_edit_menu
+                li: a.glyphicon.glyphicon-pencil(href="?edit_mode=1", title="Edit Current Page", data-placement="bottom")
+
+    if section_menu
+        .row
+            .col-xs-12 !{section_menu}
+            
+    .alpha-panel !{page_content}
+        

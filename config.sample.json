@@ -1,0 +1,21 @@
+{
+	"SSOAPP_CLIENT_ID": "see secrets.txt",
+	"SSOAPP_SECRET_KEY": "",
+	"SSOAPP_CALLBACK": "https://frog-pond.xyjax.dev/login/callback",
+	"PONDAPP_CLIENT_ID": "",
+	"PONDAPP_SECRET_KEY": "",
+	"PONDAPP_CALLBACK": "https://frog-pond.xyjax.dev/profile/token/callback",
+	"API_KEY_ID": "",
+	"API_V_CODE": "",
+	"API_CORP_ID": "1495741119",
+	"CMS_CONTENT_BASE": "D:/projects/frog-pond/content",
+	"TMP_PATH": "D:/projects/frog-pond/tmp",
+	"CF_URL": "//cf.xyjax.dev",
+	"DB_OLTP": "frogpond_oltp",
+	"DB_OLAP": "frogpond_olap",
+	"DB_USER": "frogpond",
+	"DB_PASSWD": "",
+	"SITE_ADMINS": {
+		"92828857": "CgHq9n3YPocdM1/IoJG/Pp51JMw="
+	}
+}

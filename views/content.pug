@@ -1,0 +1,74 @@
+extends ./base.pug
+
+block topmenu
+    ul.nav.navbar-nav.navbar-right
+        li.dropdown
+            a.dropdown-toggle(href="#", data-toggle="dropdown", aria-expanded="false") Info 
+                b.caret
+            ul.dropdown-menu
+                li: a(href="https://forums.eveonline.com/default.aspx?g=posts&t=6491") Forum Thread
+                li: a(href="/reports") Annual Reports
+                li: a(href="http://api.red-frog.org/") Red Frog API
+                li: a(href="/dev") Developer Info
+
+block menu
+    if auth_usr.loginChar
+        - var innerclass = "logged"
+    else
+        - var innerclass = "anon"
+
+    if auth_usr.loginChar
+        #leftmenu__user
+            span.rounded-img2(style="background-image: url('" + auth_usr.loginChar.portrait.medium + "');")
+                img(src=auth_usr.loginChar.portrait.medium, style="opacity: 0;", title=auth_usr.loginChar.name, alt=auth_usr.loginChar.name)
+    else
+        #leftmenu__login
+            a(href="/login/evesso"): img(src=cf_url + "/img/EVE_SSO_Login_Buttons_Small_Black.png", alt="Log in with EVE Online")
+    
+    nav#leftmenu__inner(class=innerclass)
+        if auth_usr.loginChar
+            h4= auth_usr.loginChar.name
+            ul.nav.nav-pills.nav-stacked
+                li: a(href="/logout") Logout
+                li: a(href="/profile/") Profile
+                //if auth_usr.privs.contracts_view_own
+                //    li: a(href="/contracts") Your Contracts
+                
+        h4 Red Frog
+        ul.nav.nav-pills.nav-stacked        
+            li.active: a(href="/") Trip Calculator
+            li: a(href="/faq/") FAQ
+            // li: a(href="/recruit") Recruitment
+            li: a(href="/recruitguide/") Recruit's Guide
+        
+        if auth_usr.hasPriv("rff_menu_view")
+            h4 RFF Pond
+            ul.nav.nav-pills.nav-stacked
+                //if auth_usr.privs.rff_dash_view
+                //    li: a(href="/rffpond/dash") Dashboard
+                if auth_usr.hasPriv("rff_ncf_view_valid") || auth_usr.hasPriv("rff_ncf_view_invalid")
+                    li: a(href="/ncf") Contract Finder
+                if auth_usr.hasPriv("rff_members_edit_own")
+                    li: a(href="/pilot_profile") Pilot Profile
+                if auth_usr.hasPriv("rff_manual_view")
+                    li: a(href="/rffmanual/") Pilot's Manual
+                if auth_usr.hasPriv("rff_mgrmanual_view")
+                    li: a(href="/rffmgrman/") Manager's Manual
+                if auth_usr.hasPriv("rff_mgrdash_view")
+                    li: a(href="/rffdash") Manager Console
+                    
+        //if auth_usr.hasPriv("bfl_menu_view")
+            h4 BFL Pond
+            ul.nav.nav-pills.nav-stacked
+                if auth_usr.hasPriv("bfl_manual_view")
+                    li: a(href="https://sites.google.com/site/redfrogmanual/") Manual
+                if auth_usr.hasPriv("bfl_ncf_view_valid") || auth_usr.hasPriv("bfl_ncf_view_invalid")
+                    li: a(href="/bflpond/ncf") Contract Finder                    
+
+block header
+    h1= title || "Frog Pond"
+
+block content
+    .row
+        .alpha-column
+            p Empty.

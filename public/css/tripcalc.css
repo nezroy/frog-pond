@@ -1,0 +1,462 @@
+/* trip calc stuff */
+
+#calculator {
+/*	max-width: 800px;
+	margin: 0 auto 0 auto; */
+}
+
+#calculator label {
+	display: block;
+}
+
+/*
+#calculator .col-sm-3 {
+	padding-left: 5px;
+	padding-right: 5px;
+}
+*/
+
+/*
+.selbox .form-control {
+	max-width: 196px;
+}
+*/
+
+#outerr .ui-widget {
+	margin-top: 5px;
+}
+
+#outerr .ui-state-highlight {
+	background: none;
+	border: none;
+	color: inherit;
+}
+
+#calculator {
+	display: none;
+}
+
+#calcload {
+	text-align: center;
+}
+
+#calcload p {
+	font-size: 0.85rem;
+	margin: 0 0 2px 0;
+}
+
+#calcload img {
+	width: 43px;
+	height: 11px;
+	display: block;
+	margin: 0 auto;
+}
+
+#calculator .notes {
+	/* height: 3em; */
+	/* padding: 1em 0 0 0; */
+	/* display: none; */
+}
+
+#calculator .notes .glyphicon-alert {
+    font-size: 1.2rem;
+    padding: 0 6px 0 0;
+    top: 4px;
+    color: rgb(175, 145, 0);
+}
+
+
+/*
+.sysbox {
+	float: left;
+	width: 115px;
+}
+
+.sysbox label {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.selbox {
+	float: left;
+	width: 145px;
+}
+
+.selbox label {
+	display: block;
+	padding: 0;
+	margin: 0;
+}
+
+.selbox .ui-selectmenu-button span.ui-selectmenu-text {
+	font-size: 0.9rem;
+	padding: 0.25em 0.2em 0.2em 0.2em;
+}
+
+.selbox .ui-state-default, .selbox .ui-widget-content .ui-state-default, .selbox .ui-widget-header .ui-state-default {
+	background: #202020;
+	border: solid 1px #333333;
+	color: rgb(210, 210, 210);
+}
+*/
+
+
+/*
+#calculator input[type=text] {
+	background: #202020;
+	border: solid 1px #333333;
+	color: rgb(210, 210, 210);
+	line-height: 1.4;
+	padding: 0.2em 0.2em;
+	margin: 0;
+	width: 100px;
+}
+
+#calculator input[type=radio] {
+	margin: 0;
+	padding: 0;
+}
+
+#calculator select {
+	background: #202020;
+	border: solid 1px #333333;
+	color: rgb(210, 210, 210);
+	line-height: 1.4;
+	padding: 0.2em 0.5em;
+	margin: 0;
+	width: 135px;
+}
+*/
+
+
+/*
+#go {
+	margin-top: 1.4em;
+}
+*/
+
+/*
+.prices { , .info {
+	float: left;
+	padding: 10px 0 0 0;
+	position: relative;
+}
+*/
+
+#calculator .form-control-static {
+    font-size: 1rem;
+}
+
+#rush {
+    width: 24px;
+    height: 24px;
+    margin: 5px 0 0 5px;
+    padding: 0;
+}
+
+/*
+.rush {
+	float: left;
+	width: 90px;
+	padding: 10px 10px 0 10px;
+	visibility: hidden;
+}
+*/
+
+/*
+.price {
+	width: 220px;
+}
+*/
+
+/*
+.info {
+	width: 190px;
+}
+*/
+
+.price label {
+	display: block;
+}
+
+#price {
+	display: block;
+	margin: 0;
+	padding: 7px;
+	/* width: 195px; */
+	/* font-size: 1.3rem; */
+	border: solid 1px rgba(50, 50, 50, 0.5);
+	/* min-height: 1.4em; */
+    font-weight: bold;
+	color: inherit;
+	background: rgba(50, 50, 85, 0.4);
+    text-align: center;
+}
+
+.price img {
+	display: block;
+	float: right;
+	width: 32px;
+	height: 32px;
+	margin: 4px 0 0 0;
+}
+
+/*
+label.route {
+	float: right;
+	width: 125px;
+}
+*/
+
+#maxsize, #length, .comptime, .exptime, .corpname, .reward, .maxsize, .collat, .rewardx {
+	font-weight: bold;
+}
+
+#price.rff {
+	background: rgba(100, 75, 75, 0.3);
+}
+
+.copycorp, .copyprice {
+	display: block;
+	position: absolute;
+	height: 18px;
+	width: 18px;
+    background: none;
+	border: none;
+	padding: 0;
+	cursor: pointer;
+}
+
+.info .copycorp {
+	top: 0;
+	left: 38px;
+}
+
+.price .copyprice {
+	top: 0;
+	left: 41px;
+}
+
+
+/* contract creation */
+
+.courier-help {
+	display: none;
+	position: relative;
+}
+
+.courier-help .ui-accordion-content {
+	height: 450px;
+	position: relative;
+	overflow: visible;
+}
+
+#ccreate {
+	position: relative;
+	height: 390px;
+}
+
+#ccreate h3 {
+	padding: 0;
+}
+
+.nextstep, .prevstep {
+	cursor: pointer;
+}
+
+.stepnav .nextstep, .stepnav .prevstep {
+	display: inline-block;
+	border: none;
+	background: none;
+	color: inherit;
+	padding: 5px 10px;
+	margin: 0 10px;
+	font-weight: bold;
+}
+
+.stepnav .nextstep:disabled, .stepnav .prevstep:disabled {
+	color: #333333;
+}
+
+div.step1, div.step2, div.step3, div.step4 {
+	position: absolute;
+	top: 31px;
+	left: -5px;
+	overflow: visible;
+	width: 125px;
+	background: rgba(50, 50, 50, 0.5);
+	padding: 5px;
+}
+
+div.step4 {
+	width: 100%;
+}
+
+ul.ccsteps {}
+
+ul.ccsteps li {
+	font-size: 0.8rem;
+	margin: 5px 0;
+}
+
+div.step4 ul.ccsteps li {
+	font-size: 1rem;
+	margin: 10px 0;
+}
+
+img.step1, img.step2, img.step3, img.step4 {
+	position: absolute;
+	top: 38px;
+	right: -3px;
+}
+
+img.step3 {
+	top: 37px;
+	right: -4px;
+}
+
+.step2, .step3, .step4 {
+	display: none;
+}
+
+#ccreate .stepnav {
+	position: absolute;
+	width: 536px;
+	height: 31px;
+	top: 0;
+	left: -5px;
+	text-align: center;
+	background: rgba(50, 50, 50, 0.5);
+}
+
+#ccreate .stepnav h3 {
+	margin: 0;
+	padding: 0;
+	background: none;
+}
+
+button.invis {
+	position: absolute;
+	border: none;
+	background: none;
+	height: 25px;
+	width: 75px;
+	z-index: 100;
+}
+
+.step1 button.nextstep.invis {
+	top: 298px;
+	left: 356px;
+}
+
+.step2 button.nextstep.invis {
+	top: 330px;
+	left: 366px;
+}
+
+.step2 button.prevstep.invis {
+	top: 330px;
+	left: 291px;
+}
+
+.step3 button.nextstep.invis {
+	top: 330px;
+	left: 366px;
+}
+
+.step3 button.prevstep.invis {
+	top: 330px;
+	left: 291px;
+}
+
+.step4 button.prevstep.invis {
+	top: 403px;
+	left: 290px;
+}
+
+.floaty {
+	position: absolute;
+	z-index: 100;
+	width: 150px;
+	font-size: 0.8rem;
+	font-weight: normal;
+}
+
+.corpname.floaty {
+	top: 221px;
+	left: 229px;
+}
+
+.reward.floaty {
+	top: 125px;
+	left: 295px;
+}
+
+.exptime.floaty {
+	top: 185px;
+	left: 297px;
+}
+
+.comptime.floaty {
+	top: 219px;
+	left: 295px;
+}
+
+.collatx.floaty {
+	top: 156px;
+	left: 295px;
+	color: #ffffff;
+}
+
+.shipto.floaty {
+	top: 92px;
+	left: 295px;
+}
+
+#mlist {
+	border-spacing: 15px;
+}
+
+#mlist td, #mlist th {
+	padding: 5px 10px;
+}
+
+.tt-suggestion .seclbl {
+	font-size: 0.8rem;
+	display: block;
+	float: right;
+	font-variant: small-caps;
+}
+
+#shortfaq .ui-accordion-header, .courier-help .ui-accordion-header, #shortfaq h4 {
+	background: #333333;
+	color: inherit;
+	display: block;
+	cursor: pointer;
+	position: relative;
+	margin: 5px 0 0 0;
+	padding: 5px 7px;
+}
+
+#shortfaq .ui-accordion-header.ui-state-hover, #shortfaq .ui-accordion-header.ui-state-active, .courier-help .ui-accordion-header.ui-state-hover, .courier-help .ui-accordion-header.ui-state-active {
+	border: solid 1px #666666;
+}
+
+#shortfaq .ui-accordion-content, .courier-help .ui-accordion-content, #shortfaq p {
+	padding: 5px 0 0 0;
+	background: none;
+	border: none;
+	color: inherit;
+}
+
+#shortfaq, #qinfo {
+	margin-bottom: 10px;
+}
+
+
+/*
+#shortfaq {
+	display: none;
+}
+*/

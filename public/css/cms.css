@@ -1,0 +1,19 @@
+#editmenu {
+	position: absolute;
+	top: 8px;
+	right: 8px;
+	z-index: 10;
+}
+
+#editmenu li {
+	float: left;
+}
+
+#editmenu a {
+	display: block;
+	padding: 8px;
+}
+
+#editmenu a:hover {
+	text-decoration: none;
+}

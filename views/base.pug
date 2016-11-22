@@ -1,0 +1,66 @@
+doctype html
+html(lang="en", dir="ltr")
+    head
+        meta(charset="utf-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1, maximum-scale=1")
+        
+        title= title || "Frog Pond"
+        link(rel="shortcut icon", href="/favicon.ico", type="image/x-icon")
+        link(href=cf_url + "/css/bootstrap.min.css", rel="stylesheet", media="screen", type="text/css")
+        link(href="/css/bootstrap-rff-theme.css", rel="stylesheet", media="screen", type="text/css")
+        link(href="/css/rff.css", rel="stylesheet", media="screen", type="text/css")
+        
+        block css
+        block head
+    body
+        block modals
+    
+        div.navbar.navbar-inverse.navbar-fixed-top#header
+            div.container
+                div.row
+                    div.col-md-10.col-md-offset-2.col-xs-12
+                        button#leftmenu__burger
+                            span.glyphicon.glyphicon-menu-hamburger(aria-hidden="true")
+                        block header
+                        block topmenu
+
+        div#leftmenu
+            block menu
+
+        div.container#content(role="main")
+            div.row
+                div.col-md-10.col-md-offset-2.col-sm-12
+                    block content
+        
+        footer#footer
+            div.container
+                div.row
+                    div.col-md-10.col-md-offset-2.col-sm-12
+                        img.footer__deco(src=cf_url + "/img/fenrir.png", alt="Fenrir")
+                        a.footer__eve(href="http://www.eveonline.com/"): img(src=cf_url + "/img/eve_sm.png", alt="EVE Online")
+                        p EVE Online, the EVE logo, EVE and all associated logos and designs are the intellectual property of CCP hf. All artwork, screenshots, characters, vehicles, storylines, world facts or other recognizable features of the intellectual property relating to these trademarks are likewise the intellectual property of CCP hf. EVE Online and the EVE logo are the registered trademarks of CCP hf. All rights are reserved worldwide. All other trademarks are the property of their respective owners. CCP hf. has granted permission to Red Frog to use EVE Online and all associated logos and designs for promotional and information purposes on its website but does not endorse, and is not in any way affiliated with, Red Frog. CCP is in no way responsible for the content on or functioning of this website, nor can it be liable for any damage arising from the use of this website.
+
+    script(src=cf_url + "/js/jquery-1.12.4.min.js")
+    script(src=cf_url + "/js/perfect-scrollbar-0.6.11.jquery.min.js")
+    script(src=cf_url + "/js/typeahead.jquery-0.11.1.min.js")
+    script(src=cf_url + "/js/bootstrap-3.3.6.min.js")
+    script(src="//cf.eve-oj.com/js/EVEoj-0.3.0.min.js")
+    script(src="/js/rff.js")
+
+    block js
+
+    script(type="text/javascript").
+        (function(i, s, o, g, r, a, m) {
+            i.GoogleAnalyticsObject = r;
+            i[r] = i[r] || function() {
+                (i[r].q = i[r].q || []).push(arguments)
+            }, i[r].l = 1 * new Date();
+            a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0];
+            a.async = 1;
+            a.src = g;
+            m.parentNode.insertBefore(a, m)
+        })(window, document, "script", "//www.google-analytics.com/analytics.js", "ga");
+        ga("create", "UA-3812026-17", "auto");
+        ga("send", "pageview");
+    

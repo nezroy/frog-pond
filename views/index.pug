@@ -1,0 +1,264 @@
+extends ./content.pug
+
+block css
+    link(href="/css/tripcalc.css", rel="stylesheet", media="screen", type="text/css")
+
+block js
+    script(src="/js/tripcalc.js")
+
+block content
+    .row
+        .col-sm-9.col-lg-8
+            .alpha-panel
+                #calcload
+                    p ... initializing trip calculator ...
+                    img(src=cf_url + "/img/ajax-loader.gif", alt="loading the trip calculator")
+                
+                #calculator
+                    .row
+                        .sysbox.form-group.col-sm-4.col-xs-6
+                            label(for="pickup") Pickup System
+                            input.form-control.typeahead#pickup(type="text")
+
+                        .sysbox.form-group.col-sm-4.col-xs-6
+                            label(for="dropoff") Dropoff System
+                            input.form-control.typeahead#dropoff(type="text")
+
+                        .selbox.form-group.col-sm-3.col-xs-5
+                            label(for="collat") Collateral
+                            select.form-control#collat
+                                option(value="1", selected="selected") ≤ 1B ISK
+                                option(value="2") ≤ 2B ISK
+                                option(value="3") ≤ 3B ISK
+                                option(value="4") ≤ 4B ISK
+                                option(value="5") ≤ 5B ISK
+                                option(value="7.5") ≤ 7.5B ISK
+                                option(value="10") ≤ 10B ISK
+                                option(value="15") ≤ 15B ISK
+                                option(value="20") ≤ 20B ISK
+                                option(value="25") ≤ 25B ISK
+
+                        .form-group.col-sm-1.col-sm-offset-0.col-xs-4.col-xs-offset-3
+                            label(title="Rush jobs are completed within 4 hours of acceptance or your money back. Rush service is only available for hisec, low collateral contracts.") Rush
+                            input#rush(name="rush", type="checkbox", disabled="disabled")
+                                        
+                    .row
+                        #outerr.col-sm-12
+                    
+                    #output
+                        .row
+                            .form-group.col-sm-3.col-xs-6
+                                label(for="volume") Max Volume
+                                p.form-control-static: span.maxsize
+                                    
+                            .form-group.col-sm-5.col-xs-12
+                                .price
+                                    label Price
+                                        button.copyprice.glyphicon.glyphicon-copy(title="copy price to clipboard")
+                                    p.form-control-static#price
+
+                            .form-group.col-sm-4.col-xs-12.info
+                                label Corp
+                                    button.copycorp.glyphicon.glyphicon-copy(title="copy corp name to clipboard")
+                                p.form-control-static: a#corpclick(href="eve: open corp info", data-igb-corpid="-1")
+
+
+                        .row
+                            .from-group.col-xs-4.col-sm-3
+                                label Expiration
+                                p.form-control-static: span.exptime
+
+                            .form-group.col-xs-4.col-sm-3
+                                label Days to complete
+                                p.form-control-static: span.comptime
+                                    
+                            .form-group.col-xs-4.col-sm-3
+                                label.route Route
+                                p.form-control-static: span#length --
+                    
+                    .notes.row
+                        p.col-sm-12
+                            span.glyphicon.glyphicon-alert(aria-hidden="true")
+                            | please remember to AVOID CONTAINERS 
+                            span.glyphicon.glyphicon-question-sign(title="If you can avoid assembled containers, we'd REALLY appreciate it! If you MUST use containers, please mention them in the description field. Packaged containers are fine. Thanks!")
+                            |  and SET COLLATERAL 
+                            span.glyphicon.glyphicon-question-sign(title="Collateral is the amount you receive if the contract fails (e.g. due to a gank). You DO NOT PAY this amount. Contracts with 0 collateral will be rejected! The amount should cover the real value of your stuff. Accurate collateral helps us haul more efficiently.")
+            //.alpha-panel
+                h3 Need help creating a courier contract? Click here for instructions.
+                div
+                    p
+                        | Click on the 
+                        img(src=cf_url + "/img/neocom_e.png", alt="E button" style="display: inline; margin: 0 3px;")
+                        | in your NEOCOM menu bar (by default on the upper-left), go to "Business", then select "Contracts". At the bottom, click "Create Contract".
+                    #ccreate
+                        .stepnav
+                            h3: button.prevstep ◄
+                                | Step 
+                                span.stepnum 1
+                                | of 4
+                                button.nextstep ►
+                                
+                        .step1
+                            h4 Step 1
+                            ul.ccsteps
+                                li
+                                    br
+                                    br
+                                    br
+                                    br
+                                    | set "Contract Type" to 
+                                    strong Courier
+                                li
+                                    br
+                                    br
+                                    | set "Availability" to
+                                    strong Private
+                                li
+                                    br
+                                    | set "Name" to
+                                    br
+                                    span.corpname --
+                                li
+                                    br
+                                    br
+                                    br
+                                    br
+                                    | click the "Next" button
+                            span.corpname.floaty --
+                            button.nextstep.invis
+                        .step2
+                            h4 Step 2
+                            ul.ccsteps
+                                li
+                                    br
+                                    br
+                                    br
+                                    | select the station with your stuff
+                                li
+                                    br
+                                    br
+                                    | select the stuff you want to ship (but please avoid containers!)
+                                    span.help(title="If you can avoid assembled containers, we'd REALLY appreciate it! If you MUST use containers, please mention them in the description field. Packaged containers are fine. Thanks!") ?
+                                li
+                                    br
+                                    br
+                                    br
+                                    | check that total size
+                                    br
+                                    | is no bigger
+                                    br
+                                    | than
+                                    span.maxsize --
+                                li
+                                    br
+                                    br
+                                    | click the "Next" button
+                            button.nextstep.invis
+                            button.prevstep.invis
+                        .step3
+                            h4 Step 3
+                            ul.ccsteps
+                                li
+                                    | "Ship To" is the station your stuff is going to
+                                li
+                                    br
+                                    | set "Reward" to
+                                    br
+                                    span.reward --
+                                li
+                                    br
+                                    | set "Collateral" to
+                                    br
+                                    | at most
+                                    span.collat --
+                                    span.help(title="Collateral is the amount you receive if the contract fails (e.g. due to a gank). You DO NOT PAY this amount. Contracts with 0 collateral will be rejected! The amount should cover the real value of your stuff. Accurate collateral helps us haul more efficiently.") 
+                                li
+                                    br
+                                    | set "Expiration"
+                                    br
+                                    | to
+                                    span.exptime --
+                                li
+                                    br
+                                    | set "Days to complete"
+                                    br
+                                    | to
+                                    span.comptime --
+                                li
+                                    br
+                                    | mention containers in the "Description"
+                                li
+                                    br
+                                    | click the "Next" button
+                            span.collatx.floaty SET COLLATERAL!!!
+                            span.reward.floaty --
+                            span.exptime.floaty --
+                            span.comptime.floaty --
+                            span.shipto.floaty --
+                            button.nextstep.invis
+                            button.prevstep.invis
+                        .step4
+                            h4 Step 4
+                            ul.ccsteps
+                                li Use the final confirmation page to double-check everything!
+                                li Verify that the "Contract Type" is 
+                                    strong Courier
+                                    | .
+                                li Verify that the "Availability" is 
+                                    strong Private
+                                    |  to 
+                                    span.corpname --
+                                    | .
+                                li Verify that the "Expiration" is 
+                                    span.exptime --
+                                    |  .
+                                li Verify that the "Reward" is 
+                                    span.rewardx --
+                                    |  .
+                                li VERIFY THAT YOU SET A COLLATERAL! And that it is no more than  
+                                    span.collat --
+                                    |  .
+                                li Verify that the "Days to complete" is 
+                                    span.comptime --
+                                    |  .
+                                li Verify that the "Volume" is no more than 
+                                    span.maxsize --
+                                    |  .
+                                li Click the "Finish" button to create the contract, then sit back and wait for us to deliver your stuff. Thanks for your business!
+                        img.step1(src=cf_url + "/img/c_step1.jpg")
+                        img.step2(src=cf_url + "/img/c_step2.jpg")
+                        img.step3(src=cf_url + "/img/c_step3.jpg")
+
+        .col-sm-3.col-lg-4
+            .alpha-panel
+                h2 Service Status
+                p Lorem ipsum
+        
+            .alpha-panel
+                p
+                    | Need help? Join channel 
+                    a.nowrap(href="eve:trust: join channel RF Freight", data-igb-chan="RF Freight") RF Freight
+                    |  and ask us!
+                    
+                #shortfaq
+                    h4(role="button", data-toggle="collapse", data-parent="#shortfaq", aria-expanded="false", aria-controls="faq1", data-target="#faq1") When will I get my stuff?
+                    p.panel.collapse#faq1(data-parent="#shortfaq").
+                        See the service status (up above) for information about the current queue size and expected hauling times. #[br] #[br]
+                        Our hisec, 1B collateral service goal is within 24 hours of you submitting the contract. Other services may take longer.
+                    h4(role="button", data-toggle="collapse", data-parent="#shortfaq", aria-expanded="false", aria-controls="faq2", data-target="#faq2") Can I get my stuff faster?
+                    p.panel.collapse#faq2(data-parent="#shortfaq").
+                        Yes! Rush jobs are available for hisec up to 1B collateral. Select the rush option in the trip calculator to see costs. #[br] #[br]
+                        Rush jobs are completed within 4 hours of acceptance. If it takes longer, you get a full refund once delivery is complete.
+                    h4(role="button", data-toggle="collapse", data-parent="#shortfaq", aria-expanded="false", aria-controls="faq3", data-target="#faq3") Can I send rigged ships?
+                    p.collapse#faq3 Yes. "If it fits, it ships!". As long as the assembled volume fits in our allowed sizes, we can haul it.
+                    h4(role="button", data-toggle="collapse", data-parent="#shortfaq", aria-expanded="false", aria-controls="faq4", data-target="#faq4") I NEED a container.
+                    p.collapse#faq4 If you MUST use a container due to the 200 item-stack limit, PLEASE add a note in the description. Packaged containers do not count -- only assembled containers are a problem.
+                    h4(role="button", data-toggle="collapse", data-parent="#shortfaq", aria-expanded="false", aria-controls="faq5", data-target="#faq5") I want to tip you guys!
+                    p.collapse#faq5.
+                        Just enter a contract reward that is higher than the price shown in the calculator. This appears as a tip for the pilot who hauls it. And thanks! #[br] #[br]
+                        NOTE: tipping does NOT imply faster service! For guaranteed fast delivery, use rush jobs.
+                
+                p
+                    | See our 
+                    a(href="/faq/") complete FAQ
+                    |  for more information.                
